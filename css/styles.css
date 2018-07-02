@@ -1,8 +1,14 @@
 @charset "utf-8";
 /* CSS Document */
 
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap; /* ряд является значением по умолчанием */
+}
+
 body,td,th,p{
- 
+  
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
 	color: #333;
@@ -37,10 +43,17 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 0 20px;
 }
+header{
+  order: 1;
+}
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-	display: block; /*was block*/
+	display: flex;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap; /*was block*/
 }
 #maincontent {
+  order: 2;
   background-color: #f3f3f3;
   min-height: 100%;
 }
@@ -54,6 +67,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 /*========================= Footer =======================*/
 
 #footer {
+  order: 3;
   /*display: flex;
   flex-direction: column;*/
   background-color: #444;
@@ -76,6 +90,10 @@ nav[role="navigation"] {
   height: 80px;
   background-color: #252831;
   text-align:center;
+}
+
+nav[role="navigation"] a {
+  display: inline-block; /* IE 10 */
 }
 nav[role="navigation"] a[href="/"] {
   flex: 1;
@@ -157,13 +175,23 @@ nav h1 a {
 }
 
 /* ====================== Restaurant Listing ====================== */
-ul.flexbox-target{
- display: flex;
- flex-direction: row;
+div.flexbox-target{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 }
-ul.flexbox-target li {
+div.flexbox-target ul {
+    width: 100%;
+    padding-left: 0;
+} 
+div.flexbox-target ul li {
+  width: calc(100% / 5);
+  list-style: none;
   display: inline-block;
+  text-align: center;
 }
+
 
 #restaurants-list {
   background-color: #f3f3f3;
