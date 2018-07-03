@@ -1,0 +1,12 @@
+/*Navigation*/
+header{
+	display: flex;
+}
+nav[role="navigation"] {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Центрировать элементы навигации по вертикали */
+}
+nav[role="navigation"] a {
+  display: inline-block; /* Чтобы избежать проблем с раскладкой строчных элементов в IE 10 */
+}
