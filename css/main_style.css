@@ -1,6 +1,7 @@
 /*Navigation*/
 header{
 	display: flex;
+	width: 100%;
 }
 nav[role="navigation"] {
   display: flex;
@@ -9,4 +10,30 @@ nav[role="navigation"] {
 }
 nav[role="navigation"] a {
   display: inline-block; /* Чтобы избежать проблем с раскладкой строчных элементов в IE 10 */
+}
+/*body{
+	background-color: yellow;
+}*/
+
+#maincontent{
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	width: 100%;
+	flex-direction: column;
+}
+.map-container{
+	order: 1;
+	height: 400px;
+}
+.filter-options{
+	flex-direction: row;
+	justify-content: flex-end;
+	order: 2;
+}
+.filter-options .neighborhoods-select{
+
+}
+.filter-options .cuisines-select {
+
 }
