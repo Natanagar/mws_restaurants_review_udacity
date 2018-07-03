@@ -31,9 +31,16 @@ nav[role="navigation"] a {
 	justify-content: flex-end;
 	order: 2;
 }
-.filter-options .neighborhoods-select{
-
+.flex-container ul{
+	flex-direction: row;
+	width: 100%;
+    padding-left: 0;
 }
-.filter-options .cuisines-select {
 
-}
+ .flex-container ul li{
+    list-style: none;
+    display: inline-block;
+    width: calc(100% / 3);
+    height: 120px;
+    text-align: center;
+  }
