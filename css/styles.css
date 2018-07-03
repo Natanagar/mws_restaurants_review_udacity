@@ -1,11 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 
-.container {
+/*.container {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap; /* ряд является значением по умолчанием */
-}
+/*}*/
 
 body,td,th,p{
   
@@ -46,29 +46,70 @@ h1, h2, h3, h4, h5, h6 {
 header{
   order: 1;
 }
+
+/* recomment*/
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-	display: flex;
+	display:block;
+  /*display: flex;
   align-content: center;
   flex-direction: column;
   flex-wrap: wrap; /*was block*/
 }
-#maincontent {
-  order: 2;
+/*#maincontent {
+  display: flex;
+  flex-direction: wrap;/*flex-direction: nowrap;*/
+  /*order: 2;
   background-color: #f3f3f3;
   min-height: 100%;
 }
 /*================ media querries =======================*/
-@media only screen and (max-width: 600px) {
-    body {
-        background-color: lightblue;
-    }
+@media only screen and (max-width: 600px){
+nav[role="navigation"] h1 a {
+  font-size: 10pt;
+  letter-spacing: 5px;
+  font-weight: 400;
+}
+nav h1{
+  font-size: 14px;
+  text-align: center;
+}
+.filter-options h2{
+  font-size: 1.4em;
+  justify-content: flex-start;
+}
+.filter-options select {
+  font-family: Arial,sans-serif;
+  font-size: 8pt;
+  height: 30px;
+  margin: 10px;
+  padding: 0 10px;
+  width: 200px;
+}
+    
+#maincontent{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+#map{
+  display: flex;
+  height: 200px;
+  width: 100%;
+}
+h2{
+  display: none;
+}
+    
+#restaurant-container, #reviews-container{
+  width:100%;
 }
 
 /*========================= Footer =======================*/
 
 #footer {
   order: 3;
-  /*display: flex;
+  display: flex;
   flex-direction: column;*/
   background-color: #444;
   color: #aaa;
@@ -82,7 +123,15 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   flex-basis: auto;*/
 }
 /* ====================== Navigation ====================== */
+/*==================Header=========================*/
 
+header{
+  display: flex;
+  flex-direction: wrap;
+  justify-content: center;
+
+}
+/*====================end header===================*/
 nav[role="navigation"] {
   display: flex;
   align-items: center;
@@ -103,9 +152,9 @@ nav h1 {
 }
 nav h1 a {
   color: #fff;
-  font-size: 14pt;
+  font-size: 16pt;
   font-weight: 200;
-  letter-spacing: 10px;
+  letter-spacing: 0px;
   text-transform: uppercase;
 }
 #breadcrumb {
@@ -141,6 +190,10 @@ nav h1 a {
     text-decoration: underline;
 }
 /* ====================== Map ====================== */
+/*#map-container{
+  display: flex;
+  flex-direction: nowrap;*/
+}
 #map {
   height: 400px;
   width: 100%;

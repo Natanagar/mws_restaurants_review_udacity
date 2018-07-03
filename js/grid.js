@@ -1,7 +1,7 @@
-window.addEventListener('resize', function makeResponsive(e));
+
 
 let makeResponsive = function(event){
-  console.log('OOooopps');
+  //console.log('OOooopps');
   let orientation = screen.msOrientation || (screen.orientation || screen.mozOrientation || {}).type;
   widthWindow = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     console.log(widthWindow, orientation);
@@ -32,5 +32,5 @@ let makeResponsive = function(event){
     }
 };
 
-window.addEventListener("orientationchange", function makeResponsive(e));
-
+window.addEventListener("orientationchange", makeResponsive);
+window.addEventListener('resize', makeResponsive);
