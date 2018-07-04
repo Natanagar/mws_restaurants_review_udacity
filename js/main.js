@@ -141,6 +141,9 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  //create attribute alt for images
+  image.alt = DBHelper.fetchNameByRestaurant(restaurant);
+  console.log(image);// I must get value (restaurant name from JSON)
   li.append(image);
 
   const name = document.createElement('h1');
