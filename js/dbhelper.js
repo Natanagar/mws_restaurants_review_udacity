@@ -22,8 +22,6 @@ class DBHelper {
       if (xhr.status === 200) { // Got a success response from server!
         const json = JSON.parse(xhr.responseText);
         const restaurants = json.restaurants;
-        console.log(restaurants, typeof(restaurants));
-        console.log((restaurants[5].name));
         callback(null, restaurants);
       } else { // Oops!. Got an error from server.
         const error = (`Request failed. Returned status of ${xhr.status}`);
