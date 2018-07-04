@@ -11,29 +11,29 @@
 </head>
 
 <body class="container" tabindex="-1">
-  <header role="banner">
+  <header aria-label="header">
     <nav role="navigation">
-      <h1><a href="/">Restaurant Reviews</a></h1>
+      <h1><label aria-label="Restaurant Reviews"><a href="/">Restaurant Reviews</a></label></h1>
     </nav>
   </header>
 
-  <main id="maincontent" role="main">
-    <section id="map-container">
+  <main id="maincontent" role="main" tabindex="0">
+    <section id="map-container" aria-describedby ="map-container">
       <div id="map"></div>
     </section>
-    <section>
-      <div class="filter-options">
+    <section aria-labelledby="neighborhoods-select">
+      <div class="filter-options" role="listbox">
         <h2>Filter Results</h2>
-        <select id="neighborhoods-select" name="neighborhoods"  tabindex="0" role="button" onchange="updateRestaurants()">
+        <select aria-describedby="neighborhoods" id="neighborhoods-select" name="neighborhoods"  tabindex="0" role="option" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select id="cuisines-select" name="cuisines" tabindex="0" role="button" onchange="updateRestaurants()">
+        <select aria-describedby="cuisines" id="cuisines-select" name="cuisines" tabindex="0" role="option" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
       </div>
       <!--<ul id="restaurants-list"></ul>-->
-      <div class="flex-container">
-        <ul id="restaurants-list"></ul>
+      <div class="flex-container" aria-label="restaurants-list">
+        <ul id="restaurants-list" role="listbox"></ul>
       </div>
     
     </section>
@@ -42,7 +42,7 @@
 
 
   
-    <footer id="footer" role ="contentinfo">
+    <footer id="footer" role ="contentinfo" tabindex="-1">
       Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
     </footer>
     <!-- Scripts-->
