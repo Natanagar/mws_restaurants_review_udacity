@@ -39,15 +39,36 @@ self.addEventListener('install', function(event){
       );
   });
 
-self.addEventListener('activate', function(event){
-  console.log(event.request);// Todo...
-});
+/*self.addEventListener('activate', function(event){
+  // Todo...
+});*/
 self.addEventListener('fetch', function(event) {
-  console.log(event.request);
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      return response || fetch(event.request)
-    })
+      console.log(event.request.url);
+      //compare url with cache
+       if (event.request.url.endsWith('/restaurant.html'?id=2)) {
+      event.respondWith(
+        fetch('/restaurant.html')
+      );
+    } else event.respondWith(
+      fromCache(event.request));
+        event.waitUntil(
+            update(event.request));
+
+  });
+//get dates from cache
+function fromCache(request){
+  return caches.open(CACHE)
+    .then(cache)=>(request)=>{caches.match(request)};
+    .then(matching)=>(reject)=>{matching || Promise.reject('no-match')};
+  };
+//update dates from network
+function update(request) {
+  return caches.open(CACHE)
+    .then(cache)=>
+      fetch(request)
+      .then(response)=>
+        cache.put(request, response)
+      )
   );
-});
+}
 
