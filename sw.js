@@ -47,7 +47,7 @@ function fromCache(request){
     .then((cache)=>cache.match((event.request.url, {ignoreSearch: true}))
     .then((matching) || Promise.reject('no-match')
     ));
-  }
+}
 
 //update dates from network
 function update(request) {
@@ -56,13 +56,12 @@ function update(request) {
       fetch(request)
       .then(response)=>
         cache.put(request, response)
-      )
-  );
-}
+};
+
 //This is a event that can be fired from your page to tell the SW to update the offline page
-self.addEventListener('refreshOffline', function(response) {
-  return caches.open('CACHE').then(function(cache) {
-    console.log('[off] Offline page updated from refreshOffline event: '+ response.url);
-    return cache.put(offlinePage, response);
+  self.addEventListener('refreshOffline', function(response) {
+    return caches.open('CACHE').then(function(cache) {
+      console.log('[off] Offline page updated from refreshOffline event: '+ response.url);
+      return cache.put(offlinePage, response);
+    });
   });
-});
