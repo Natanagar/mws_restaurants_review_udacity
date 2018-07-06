@@ -36,9 +36,10 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   display: block;
 }
 /* main container test 1 */
-/*#maincontent{
+#maincontent{
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 /* */
@@ -83,8 +84,9 @@ nav h1 a {
 }
 nav[role="navigation"] {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
   background-color: #252831;
   height: 80px; /* Центрировать элементы навигации по вертикали */
 }
@@ -312,43 +314,63 @@ nav[role="navigation"] a[href="/"] {
 }
 
 /*===media-queries=====*/
-@media only screen and (max-width: 600px) {
-    .filter-options {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      /*width: 100%;*/
-      height: 50px;
-      background-color: #3397DB;
-      /*align-items: center;*/
-    }
-    .filter-options h2 {
-      visibility: hidden;
-    }
-    .filter-options select {
-      justify-content: center;
-      align-content: space-between;
-      font-size: 8pt;
-      height: 35px;
-      width: 100px;
-    }
-    .inside header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-    .inside #map-container {
-      width: 100%;
-    }
-    .inside #map {
-      /*background-color: #ccc;*/
-      height: 300px;
-      width: 100%;
-      }
-    }
-    #restaurant-container, #reviews-container{
-      width: 100%
-    }
+/* Medium screens */
+@media only screen and (max-width: 700px) {
 
-/*======*/
+.filter-options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /*width: 100%;*/
+  height: 50px;
+  background-color: #3397DB;
+  /*align-items: center;*/
+}
+.filter-options h2 {
+  visibility: hidden;
+}
+.filter-options select {
+  justify-content: center;
+  align-content: space-between;
+  font-size: 8pt;
+  height: 35px;
+  width: 100px;
+}
+.inside header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+    
+#restaurant-container, #reviews-container{
+  width: 100%;
+}
+#map {
+  height: 150px;
+  width: 100%;
+  background-color: #ccc;
+}
+    
+/* Small screens */
+  
+@media all and (max-width: 500px) {
+  /*Navigation*/
+nav h1 label a{
+  font-size: 8pt;
+  font-weight: 300;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+nav h1 label a:hover{ 
+  font-weight: bold
+}
+nav[role="navigation"] {
+/* On small screens, we are no longer using row direction but column */
+  flex-direction: column;
+  }
+.inside #map-container{
+      width: 100%;
+      height: 300px;
+    }
+}
