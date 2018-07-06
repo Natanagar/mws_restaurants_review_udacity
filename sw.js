@@ -19,16 +19,7 @@
       'img/10.jpg'
    ];
 
-  //Registration Service Worker
-  if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js', {scope: './'}).then(function(registration) {
-    console.log('Registration service worker has been done:', registration);
-  }).catch(function(error) {
-    console.log('Failed in registration', error);
-  });
-  } else {
-    console.log('Browsers API dont support service worker');
-  }
+
 
   //define cache name
   let CACHE = 'network-or-cache-v1';
