@@ -52,10 +52,8 @@ function fromCache(request){
 //update dates from network
 function update(request) {
   return caches.open(CACHE)
-    .then(cache)=>
-      fetch(request)
-      .then(response)=>
-        cache.put(request, response)
+    .then((cache)=>fetch(request))
+      .then((response)=>cache.put(request, response));
 };
 
 //This is a event that can be fired from your page to tell the SW to update the offline page
