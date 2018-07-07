@@ -42,7 +42,7 @@ self.addEventListener('fetch', function(event){
 
 
 //get dates from cache
-function fromCache(request){
+function fromCache(event.request){
   return caches.open(CACHE)
     .then((cache)=>cache.match((event.request.url, {ignoreSearch: true}))
     .then((matching) || Promise.reject('no-match')
