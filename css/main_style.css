@@ -5,11 +5,12 @@ header{
 }
 nav[role="navigation"] {
   display: flex;
+  width: 100%;
   align-items: center;
-  justify-content: center; /* Центрировать элементы навигации по вертикали */
+  justify-content: center; 
 }
 nav[role="navigation"] a {
-  display: inline-block; /* Чтобы избежать проблем с раскладкой строчных элементов в IE 10 */
+  display: inline-block; 
 }
 /*body{
 	background-color: yellow;
@@ -44,13 +45,6 @@ nav[role="navigation"] a {
     height: 120px;
     text-align: center;
   }
-.flex {
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: center;
-	width: 100%;
-	flex-direction: column;
-}
 /* media queriies*/
 /*===media-queries=====*/
 @media only screen and (max-width: 600px) {
@@ -62,13 +56,4 @@ nav[role="navigation"] a {
     	height: 300px;
     }
   
-}
-/*#map-container{
-	width: 100%;
-}
-#restaurant-container{
-	width: 100%;
-}
-#reviews-container{
-	width: 100%;
 }

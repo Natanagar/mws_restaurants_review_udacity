@@ -342,9 +342,14 @@ nav[role="navigation"] a[href="/"] {
   width: 100%;
   z-index: 1000;
 }
-    
-#restaurant-container, #reviews-container{
+.inside #map-container{
   width: 100%;
+  height: 400px;
+}
+    
+
+/*#restaurant-container, #reviews-container{
+  width: 100%;*/
 }
 #map {
   height: 150px;
@@ -365,12 +370,31 @@ nav h1 label a{
 nav h1 label a:hover{ 
   font-weight: bold
 }
+/*navigation index.html*/
 nav[role="navigation"] {
 /* On small screens, we are no longer using row direction but column */
   flex-direction: column;
-  }
+}
+
+/*navigation restaurant */
+nav[role="navigation"] a[href="/"] {
+  flex: 1;
+  font-size: 8pt;
+  font-weight: 300;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  justify-content: center;
+}
+
+/**/
 .inside #map-container{
       width: 100%;
       height: 300px;
     }
+#restaurant-container{
+  visibility: hidden;
+  }
+  #breadcrumb {
+    width: calc(100% - 160px); 
+  }
 }
