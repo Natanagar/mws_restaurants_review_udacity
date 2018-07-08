@@ -38,28 +38,22 @@
     
     </section>
   </main>
-
-
-
-  
+    <!-- Footer-->
     <footer id="footer" role ="contentinfo" tabindex="-1">
       Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
     </footer>
 
     <!-- Scripts-->
-    <script type="text/javascript">
+  <script type="text/javascript">
       //Registration Service Worker
-        if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js', {scope: './'})
-        .then(function(registration) {
-      console.log('Registration service worker has been done:', registration);
-        }).catch(function(error) {
-      console.log('Failed in registration', error);
-        });
-      } else {
-      console.log('Browsers API dont support service worker');
-      }
-        
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+          console.log('ServiceWorker registration successful with scope:',  registration.scope);
+          }).catch(function(error) {
+            console.log('ServiceWorker registration failed:', error);
+          });
+        }
+    
     </script>
     <!--DBHelper -->
     <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>

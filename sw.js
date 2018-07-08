@@ -1,4 +1,4 @@
-   let arrayToCache = [
+ let arrayToCache = [
       '/',
       'index.html',
       'restaurant.html',
@@ -7,16 +7,16 @@
       '/js/dbhelper.js',
       '/js/restaurant_info.js',
       'data/restaurants.json',
-      'img/1.jpg',
-      'img/2.jpg',
-      'img/3.jpg',
-      'img/4.jpg',
-      'img/5.jpg',
-      'img/6.jpg',
-      'img/7.jpg',
-      'img/8.jpg',
-      'img/9.jpg',
-      'img/10.jpg'
+      '/img/1.jpg',
+      '/img/2.jpg',
+      '/img/3.jpg',
+      '/img/4.jpg',
+      '/img/5.jpg',
+      '/img/6.jpg',
+      '/img/7.jpg',
+      '/img/8.jpg',
+      '/img/9.jpg',
+      '/img/10.jpg'
    ];
 
 
@@ -35,44 +35,38 @@
   });
 
 //get dates from cache, after that from Network
-self.addEventListener('fetch', function(event){
-  event.respondWith(fromCache(event.request));
-  event.waitUntil(update(event.request));
+self.addEventListener('fetch', function(event, cache=CACHE){
+  const url = new URL(event.request.url);
+  console.log(url);
+    cache.open(CACHE)
+    .then((cache) => {
+      cache.match(url, {ignoreSearch: true}).then((res) => {
+        return response || fetch(event.request);//res is the Response Object
+      })
+    })
+    event.waitUntil(update(event.request));
 });
 
 
-function fromCache(request){
-  return caches.open(CACHE)
-    .then((cache)=>cache.match((event.request.url), {ignoreSearch: true}))
-    .then((matching) || Promise.reject('no-match')
-    ));
-}
+   // We only want to call event.respondWith() if this is a GET request for an HTML document.
 
+      //event.waitUntil(update(event.request));
+
+
+//get dates from cache
+/*function fromCache(request, event){
+  const url = new URL(event.request.url);
+  return caches.open(CACHE)
+    .then((cache)=>cache.match(url.path))
+    .then((response)=>(response || fetch(event.request)))
+  }*/
 //update dates from network
-function update(request) {
+function update(request, cache) {
   return caches.open(CACHE)
     .then((cache)=>fetch(request))
-      .then((response)=>cache.put(request, response)
-    )
+      .then((response)=>cache.put(request, response))
 };
-/*
-//get dates from cache
-function fromCache(request){
-  return caches.open(CACHE)
-    .then((cache)=>cache.match((event.request.url, {ignoreSearch: true}))
-    .then((matching) || Promise.reject('no-match')
-    ));
-}
 
-//update dates from network
-function update(event.request) {
-  return caches.open(CACHE)
-    .then(cache)=>
-      fetch(request)
-      .then(response)=>
-        cache.put(request, response)
-};
-*/
 //This is a event that can be fired from your page to tell the SW to update the offline page
   self.addEventListener('refreshOffline', function(response) {
     return caches.open('CACHE').then(function(cache) {
@@ -80,3 +74,4 @@ function update(event.request) {
       return cache.put(offlinePage, response);
     });
   });
+
