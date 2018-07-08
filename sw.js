@@ -25,7 +25,6 @@
   let CACHE = 'network-or-cache-v1';
   // add image to cache
   self.addEventListener('install', function(event){
-    let offlinePage = new Request('/index.html');
      self.skipWaiting();
      event.waitUntil(
         caches
@@ -38,9 +37,9 @@
 self.addEventListener('fetch', function(event, cache=CACHE){
   const url = new URL(event.request.url);
   console.log(url);
-    cache.open(CACHE)
+    caches.open(CACHE)
     .then((cache) => {
-      cache.match(url, {ignoreSearch: true}).then((res) => {
+      caches.match(url, {ignoreSearch: true}).then((res) => {
         return response || fetch(event.request);//res is the Response Object
       })
     })
@@ -51,15 +50,6 @@ self.addEventListener('fetch', function(event, cache=CACHE){
    // We only want to call event.respondWith() if this is a GET request for an HTML document.
 
       //event.waitUntil(update(event.request));
-
-
-//get dates from cache
-/*function fromCache(request, event){
-  const url = new URL(event.request.url);
-  return caches.open(CACHE)
-    .then((cache)=>cache.match(url.path))
-    .then((response)=>(response || fetch(event.request)))
-  }*/
 //update dates from network
 function update(request, cache) {
   return caches.open(CACHE)
@@ -69,7 +59,8 @@ function update(request, cache) {
 
 //This is a event that can be fired from your page to tell the SW to update the offline page
   self.addEventListener('refreshOffline', function(response) {
-    return caches.open('CACHE').then(function(cache) {
+    let offlinePage = new Request('/index.html');
+    return caches.open(CACHE).then(function(cache) {
       console.log('[off] Offline page updated from refreshOffline event: '+ response.url);
       return cache.put(offlinePage, response);
     });
