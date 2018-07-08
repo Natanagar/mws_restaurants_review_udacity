@@ -332,3 +332,16 @@ header [aria-label="header"]{
     margin: 0;
     width: calc(100% - 80px);
 }
+
+/*media querries*/
+@media screen and (min-width: 600px) and (orientation: landscape) {
+.filter-option{
+  display: flex;
+  }
+.filter-options h2{
+    visibility: hidden;
+  }
+nav h1{
+  font-size: 12pt;
+}
+}

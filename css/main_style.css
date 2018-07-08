@@ -3,7 +3,7 @@
 
 @media screen and (min-width: 400px) and (orientation: landscape) {
 nav [role="navigation"]{
-  /*flex-flow: row nowrap;*/
+  flex-flow: column nowrap;
   justify-content: space-around;
 }
 nav h1 {
@@ -13,5 +13,11 @@ nav h1 label a{
   font-size: 11pt;
   font-weight: 100;
   letter-spacing: 10px;
+  }
+.filter-option{
+  display: flex;
+  }
+.filter-options h2{
+    visibility: hidden;
   }
 }
