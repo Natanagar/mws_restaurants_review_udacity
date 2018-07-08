@@ -14,9 +14,7 @@
   display: grid; 
   grid-template-columns: auto 1fr auto;
 } 
-header{
-  display: flex;
-} /* three columns */
+ /* three columns */
   /*grid-template-rows: 50% auto; /* three rows  */
 /*}
 header {
@@ -308,4 +306,29 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+/* header */
+header{
+  display: flex;
+}
+nav [role="navigation"]{
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  order:1;
+}
+nav h1 {
+  margin-top: 20px; 
+  text-align: center;
+}
+header [aria-label="header"]{
+  display: flex;
+}
+#breadcrumb {
+  order:2;
+    padding: 10px 40px 16px;
+    list-style: none;
+    background-color: #eee;
+    font-size: 17px;
+    margin: 0;
+    width: calc(100% - 80px);
 }

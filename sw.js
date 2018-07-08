@@ -34,15 +34,23 @@
   });
 
 //get dates from cache, after that from Network
+/*self.addEventListener('fetch', function(event) {
+  const url = new URL(event.request.url);
+  event.respondWith(
+    caches.match(url.pathname).then((res) => {
+      return response || fetch(event.request); //res is the Response Object
+    })
+  )
+});*/
+
 self.addEventListener('fetch', function(event, cache=CACHE){
   const url = new URL(event.request.url);
   console.log(url);
-    caches.open(CACHE)
-    .then((cache) => {
-      caches.match(url, {ignoreSearch: true}).then((res) => {
+    event.respondWith(
+      caches.match(url, {ignoreSearch: true}).then((response) => {
         return response || fetch(event.request);//res is the Response Object
       })
-    })
+    )
     event.waitUntil(update(event.request));
 });
 
