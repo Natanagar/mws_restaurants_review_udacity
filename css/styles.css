@@ -373,6 +373,13 @@ section[aria-labelledby="neighborhoods-select"]{
 .filter-options{
   display: flex;
 }
+/* custom styles*/
+.inside .container{
+  display: flex;
+}
+.restaurant-navigation{
+  display: flex;
+}
 /*media querries*/
 @media screen and (max-width: 600px) and (orientation: portrait) {
 .filter-option{
