@@ -29,17 +29,29 @@ nav h1 label a{
   height: 50%;
 }
 
-
-
+/**/
+.restaurant-navigation{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.restaurant-navigation nav{
+  display: flex;
+}
 @media screen and (max-width: 800px) and (orientation: landscape) {
   section[aria-labelledby="neighborhoods-select"]{
     flex-wrap: column;
   }
-.inside #map-container {
-    background: blue none repeat scroll 0 0;
-    height: 50%;
-    right: 0;
-    /*top: 80px;*/
-    width: 100%;
+.restaurant-navigation{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
+
+ 
+/*.restaurant-navigation nav [role="navigation"]{
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    flex: 0 0 auto;
+  }*/
 }
