@@ -10,10 +10,10 @@
 }
 
 /*container grid restaurant.html*/
-.inside.container {
+/*.inside.container {
   display: grid; 
   grid-template-columns: auto 1fr auto;
-} 
+} */
  /* three columns */
   /*grid-template-rows: 50% auto; /* three rows  */
 /*}
@@ -74,6 +74,8 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   min-height: 100%;
 }
 #footer {
+  display: flex;
+  justify-content: center;
   background-color: #444;
   color: #aaa;
   font-size: 8pt;
@@ -81,6 +83,10 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   padding: 25px;
   text-align: center;
   text-transform: uppercase;
+}
+footer a strong{
+  margin-right: 15px;
+  margin-left: 15px;
 }
 /* ====================== Navigation ====================== */
 nav {
@@ -143,6 +149,7 @@ nav h1 a {
   height: 50px;
   background-color: #3397DB;
   align-items: center;
+  flex-flow: row nowrap;
 }
 .filter-options h2 {
   color: white;
@@ -152,6 +159,8 @@ nav h1 a {
   margin: 0 20px;
 }
 .filter-options select {
+  display: flex;
+  flex-flow: row wrap;
   background-color: white;
   border: 1px solid #fff;
   font-family: Arial,sans-serif;
@@ -164,6 +173,13 @@ nav h1 a {
 }
 
 /* ====================== Restaurant Listing ====================== */
+/*.flex-container{
+  display: flex;
+  
+  width: 100%;
+}*/
+
+
 #restaurants-list {
   background-color: #f3f3f3;
   list-style: outside none none;
@@ -171,7 +187,24 @@ nav h1 a {
   padding: 30px 15px 60px;
   text-align: center;
 }
+
+#restaurants-list ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-left: 0;
+}
+
 #restaurants-list li {
+  /*custom*/
+  list-style: none;
+  display: inline-block;
+  width: calc(100% / 5);
+  
+  text-align: center;
+
+  /**/
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
@@ -332,9 +365,16 @@ header [aria-label="header"]{
     margin: 0;
     width: calc(100% - 80px);
 }
-
+section[aria-labelledby="neighborhoods-select"]{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.filter-options{
+  display: flex;
+}
 /*media querries*/
-@media screen and (min-width: 600px) and (orientation: landscape) {
+@media screen and (max-width: 600px) and (orientation: portrait) {
 .filter-option{
   display: flex;
   }
@@ -343,5 +383,6 @@ header [aria-label="header"]{
   }
 nav h1{
   font-size: 12pt;
+    }
   }
 }

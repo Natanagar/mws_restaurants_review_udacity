@@ -1,23 +1,45 @@
 @charset "utf-8";
 /*media queries*/
 
-@media screen and (min-width: 400px) and (orientation: landscape) {
+@media screen and (max-width: 400px) and (orientation: portrait) {
 nav [role="navigation"]{
   flex-flow: column nowrap;
   justify-content: space-around;
+  flex: 0 0 auto;
 }
 nav h1 {
-  margin-top: 7px; 
+  margin-top: 10px; 
   }
 nav h1 label a{
   font-size: 11pt;
   font-weight: 100;
   letter-spacing: 10px;
   }
-.filter-option{
+.filter-option select{
+  align-items: flex-start;
+  justify-content: center;
+}
+#map-container{
   display: flex;
+}
+
+.inside #map-container{
+  display: flex;
+  width: 100%;
+  height: 50%;
+}
+
+
+
+@media screen and (max-width: 800px) and (orientation: landscape) {
+  section[aria-labelledby="neighborhoods-select"]{
+    flex-wrap: column;
   }
-.filter-options h2{
-    visibility: hidden;
-  }
+.inside #map-container {
+    background: blue none repeat scroll 0 0;
+    height: 50%;
+    right: 0;
+    /*top: 80px;*/
+    width: 100%;
+}
 }
