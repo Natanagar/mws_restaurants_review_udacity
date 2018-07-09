@@ -378,6 +378,8 @@ section[aria-labelledby="neighborhoods-select"]{
 }
 .restaurant-navigation{
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 /*media querries*/
 @media screen and (max-width: 600px) and (orientation: portrait) {
@@ -391,4 +393,5 @@ nav h1{
   font-size: 12pt;
     }
   }
+
 
