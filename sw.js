@@ -51,7 +51,7 @@ self.addEventListener('fetch', function(event, cache=CACHE){
         return response || fetch(event.request);//res is the Response Object
       })
     )
-    event.waitUntil(update(event.request));
+    event.waitUntil(update(event.request, cache));
 });
 
 
@@ -59,10 +59,9 @@ self.addEventListener('fetch', function(event, cache=CACHE){
 
       //event.waitUntil(update(event.request));
 //update dates from network
-function update(request, cache) {
+function update(request) {
   return caches.open(CACHE)
-    .then((cache)=>fetch(request))
-      .then((response)=>cache.put(request, response))
+      .then(cache => cache.add(request))
 };
 
 //This is a event that can be fired from your page to tell the SW to update the offline page
