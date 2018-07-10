@@ -82,6 +82,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   padding: 25px;
   text-align: center;
   text-transform: uppercase;
+  flex: 1;
 }
 footer a strong{
   margin-right: 15px;
@@ -379,10 +380,11 @@ section[aria-labelledby="neighborhoods-select"]{
 .restaurant-navigation{
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  /*flex-direction: column;*/
 }
 .restaurant{
   display: flex;
+  flex-wrap: wrap;
 }
 /*media querries*/
 @media screen and (max-width: 600px) and (orientation: portrait) {
@@ -396,6 +398,10 @@ section[aria-labelledby="neighborhoods-select"]{
 }
 #maincontent{
   flex: 1;
+}
+#map-container{
+  /*width: 100%;*/
+  height: 300px;
 }
 .filter-option{
   display: flex;

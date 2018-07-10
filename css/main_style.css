@@ -21,6 +21,12 @@ nav h1 label a{
 }
 #map-container{
   display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 300px;
+}
+#map{
+  display: flex;
 }
 
 .inside #map-container{
