@@ -392,6 +392,10 @@ section[aria-labelledby="neighborhoods-select"]{
   flex-wrap: nowrap;
   flex-direction: column;
   width: 100%;
+  min-height: 100vh;
+}
+#maincontent{
+  flex: 1;
 }
 .filter-option{
   display: flex;
