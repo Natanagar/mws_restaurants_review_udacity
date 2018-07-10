@@ -34,25 +34,20 @@
   });
 
 //get dates from cache, after that from Network
-/*self.addEventListener('fetch', function(event) {
-  const url = new URL(event.request.url);
-  event.respondWith(
-    caches.match(url.pathname).then((res) => {
-      return response || fetch(event.request); //res is the Response Object
-    })
-  )
-});*/
 
 self.addEventListener('fetch', function(event, cache=CACHE){
-  const url = new URL(event.request.url);
-  console.log(url);
-    event.respondWith(
-      caches.match(url, {ignoreSearch: true}).then((response) => {
-        return response || fetch(event.request);//res is the Response Object
-      })
-    )
-    event.waitUntil(update(event.request, cache));
-});
+   const url = new URL(event.request.url);
+   console.log(url);
+   const requestNew = new Request(event.request, {ignoreSearch: 'true' });
+      caches.open(CACHE)
+        event.respondWith(
+          caches.match(requestNew).then((response) => {
+            return response || fetch(event.request);//res is the Response Object
+          })
+        )
+      event.waitUntil(update(event.request));
+    });
+
 
 
    // We only want to call event.respondWith() if this is a GET request for an HTML document.
@@ -61,11 +56,12 @@ self.addEventListener('fetch', function(event, cache=CACHE){
 //update dates from network
 function update(request) {
   return caches.open(CACHE)
-      .then(cache => cache.add(request))
+    .then(cache => cache.add(request))
 };
 
+
 //This is a event that can be fired from your page to tell the SW to update the offline page
-  self.addEventListener('refreshOffline', function(response) {
+ self.addEventListener('refreshOffline', function(response) {
     let offlinePage = new Request('/index.html');
     return caches.open(CACHE).then(function(cache) {
       console.log('[off] Offline page updated from refreshOffline event: '+ response.url);
