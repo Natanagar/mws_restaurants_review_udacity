@@ -3,7 +3,7 @@
 #### _Three Stage Course Material Project - Restaurant Reviews_
 
 
-###Installation 
+### Installation 
 
 Cloning repository https://github.com/Natanagar/mws_restaurants_udacity_v.1.0.0.git
 
@@ -27,18 +27,18 @@ This application works in offline first mode. Service Worker had been implemente
 
 In Chrome browser you can open Devtools/Application and choose option Service Workers and tick Offline mode. 
 
-##Responsive design
+## Responsive design
 Use the Chrome Device emulator to simulate different smartphones and tablets (or another favourite browser).
 
-##ES6
+## ES6
 Application was build with syntax ES6(Promises, arrow functions);
 
-##Dependencies
+## Dependencies
 Google Maps API
 DBHelper
 HTTP-serve
 
-###Compatibility
+## Compatibility
 Chrome
 Chrome Canary
 Safari
