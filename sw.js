@@ -49,10 +49,9 @@ self.addEventListener('fetch', function(event, cache=CACHE){
     });
 
 
+// We only want to call event.respondWith() if this is a GET request for an HTML document.
 
-   // We only want to call event.respondWith() if this is a GET request for an HTML document.
 
-      //event.waitUntil(update(event.request));
 //update dates from network
 function update(request) {
   return caches.open(CACHE)

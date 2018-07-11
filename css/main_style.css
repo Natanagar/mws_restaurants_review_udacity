@@ -45,19 +45,14 @@ nav h1 label a{
   display: flex;
 }
 @media screen and (max-width: 800px) and (orientation: landscape) {
+/*buttons in panel*/
   section[aria-labelledby="neighborhoods-select"]{
     flex-wrap: column;
   }
+/*navigation in restaurants list*/
 .restaurant-navigation{
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-}
-
- 
-/*.restaurant-navigation nav [role="navigation"]{
-    flex-flow: column nowrap;
-    justify-content: space-around;
-    flex: 0 0 auto;
-  }*/
+  }
 }
