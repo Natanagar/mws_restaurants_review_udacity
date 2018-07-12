@@ -21,10 +21,10 @@
   <header class="restaurant-navigation" aria-label="header" tabindex="0">
     <!-- Beginning nav -->
     <nav role="navigation" aria-label="Restaurant">
-      <h2><label aria-label="Restaurant Reviews"><a href="/">Restaurant Reviews</a></label></h2>
+      <h2 role="presentation"><a href="/">Restaurant Reviews</a></h2>
     </nav>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb" role=listbox tabindex="0">
+    <ul id="breadcrumb" role="listbox" tabindex="0">
       <li role="option"><label aria-label="Home"><a href="/">Home</a></label></li>
     </ul>
     <!-- End breadcrumb -->
@@ -33,9 +33,9 @@
   <!-- End header -->
 
   <!-- Beginning main -->
-  <main id="maincontent" class="restaurant" role ="main" tabindex="0">
+  <main id="maincontent" class="restaurant" role ="main" tabindex="-1">
     <!-- Beginning map -->
-    <section aria-label ="application" id="map-container" tabindex="0">
+    <section aria-label ="application" id="map-container" tabindex="-1">
       <div id="map"></div>
     </section>
     <!-- End map -->
