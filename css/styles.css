@@ -407,6 +407,9 @@ nav h1{
 #restaurants-list li{
   max-width: 100%
   }
+#breadcrumb{
+  width: 100%;
+  }
 }
 
 
