@@ -43,8 +43,9 @@ Safari
 
 ## Dependencies
 
-Google Maps API DBHelper HTTP-serve
+Google Maps API 
 
-Compatibility
+DBHelper 
 
-Chrome Chrome Canary Safari
+HTTP-server
+
