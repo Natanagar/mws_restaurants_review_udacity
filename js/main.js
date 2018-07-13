@@ -1,8 +1,10 @@
 let restaurants,
   neighborhoods,
-  cuisines
+  cuisines;
 var map
 var markers = []
+map = document.getElementById('#map');
+let popUp;
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -10,6 +12,10 @@ var markers = []
 document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
+  /*if(map.error){
+    console.log(error);
+    map.append(popUp);
+  }*/
 });
 
 /**
@@ -25,7 +31,15 @@ fetchNeighborhoods = () => {
     }
   });
 }
+/* add information about hidden Google maps*/
+hiddenMaps = (element)=>{
 
+  popUp = createElement('section');
+  popUp.setAttribute('role','application');
+  popUp.classList.add('mapcontainer');
+  popUp.innerHTML =`Ну нет карт в оффлайне и не бывает, Гуглю привет!`
+  return popUp;
+}
 /**
  * Set neighborhoods HTML.
  */

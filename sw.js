@@ -37,7 +37,7 @@
 
 self.addEventListener('fetch', function(event, cache=CACHE){
    const url = new URL(event.request.url);
-   //console.log(url);
+   console.log(url);
    const requestNew = new Request(event.request, {ignoreSearch: 'true' });
       caches.open(CACHE)
         event.respondWith(
@@ -56,7 +56,7 @@ self.addEventListener('fetch', function(event, cache=CACHE){
 function update(request) {
   return caches.open(CACHE)
     .then(cache => cache.add(request))
-      // add function, which add information about low connection and hidden map
+
 };
 
 
