@@ -1,4 +1,4 @@
- let arrayToCache = [
+  let arrayToCache = [
       '/',
       'index.html',
       'restaurant.html',
@@ -32,12 +32,35 @@
             .then((cache) => cache.addAll(arrayToCache))
       );
   });
+//event activate
+self.onactivate = function(event) {
+  console.log("[ServiceWorker] Activate");
+
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      console.log(cacheNames);
+      return Promise.all(
+        cacheNames
+          .filter(cacheName => {
+           return cacheNames.startsWith("network-or-cache-") &&
+              (cacheName != CACHE);
+          }).map(cacheName => {
+            return caches.delete(cacheName);
+          })
+      );
+    })
+  );
+};
 
 //get dates from cache, after that from Network
 
 self.addEventListener('fetch', function(event, cache=CACHE){
-   const url = new URL(event.request.url);
-   console.log(url);
+
+   //const url = new URL(event.request);
+   console.log(event.request.url, event.request.method);
+   /*if( url.indexOf( "http://localhost:8080" ) > -1
+        && url.indexOf( "http://localhost:8080/api/" ) == -1
+        && url.indexOf( "http://localhost:8080/pwa-" ) == -1 )*/
    const requestNew = new Request(event.request, {ignoreSearch: 'true' });
       caches.open(CACHE)
         event.respondWith(
