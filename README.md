@@ -11,7 +11,7 @@ Cloning repository https://github.com/Natanagar/mws_restaurants_udacity_v.1.0.0.
 
 ## Kickstart the server
 
-You can use http-serve, which you can install with npm or yarn. If you prefer npm, choose `npm -g http-serve` Or `yarn add global http-serve` after them run http-server ./ in terminal and open `http://localhost:8080/` in your favourite browser.
+You can use http-serve, which you can install with npm or yarn. If you prefer npm, choose `npm -g http-server` Or `yarn add global http-server` after them run `http-server ./` in terminal and open `http://localhost:8080/` in your favourite browser.
 
 
 ## Accesibility
